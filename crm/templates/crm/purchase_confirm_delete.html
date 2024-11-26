@@ -1,0 +1,11 @@
+{% extends 'crm/base.html' %}
+
+{% block content %}
+<h1>Удалить покупку</h1>
+<p>Вы уверены, что хотите удалить покупку от клиента "{{ purchase.client.name }}"?</p>
+<form method="post">
+    {% csrf_token %}
+    <button type="submit">Удалить</button>
+    <a href="{% url 'purchase_list' %}">Отмена</a>
+</form>
+{% endblock %}

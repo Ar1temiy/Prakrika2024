@@ -1,0 +1,14 @@
+{% extends 'crm/base.html' %}
+
+{% block content %}
+<h1>Товары</h1>
+<a href="{% url 'product_create' %}">Добавить товар</a>
+<ul>
+    {% for product in products %}
+        <li>{{ product.name }} - {{ product.price }} руб. ({{ product.stock }} в наличии) - 
+            <a href="{% url 'product_edit' product.id %}">Редактировать</a>
+            <a href="{% url 'product_delete' product.id %}">Удалить</a>
+        </li>
+    {% endfor %}
+</ul>
+{% endblock %}
